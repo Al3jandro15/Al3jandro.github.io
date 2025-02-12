@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Princesa Bella 💖</title>
+    <style>
+        body {
+            background-color: #ffccd5;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d63384;
+            font-size: 28px;
+            margin-top: 50px;
+        }
+        #message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4081;
+            margin-top: 20px;
+            display: none;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100vh); }
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        #yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        #no {
+            background-color: #ff1744;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi Valentine? 💘</h1>
+    <div class="button-container">
+        <button id="yes" onclick="showMessage()">Sí 💘</button>
+        <button id="no" onmouseover="moveNoButton()">No 💔</button>
+    </div>
+    <p id="message"> Mi amada Andrea ❤, <br><br>
+        No hay palabras suficientes para describir lo que significas para mí. 
+        Desde el momento en que entraste en mi vida, todo cambió para mejor. 
+        Estos *tres años* a tu lado han sido los más hermosos que jamás imaginé. 
+        Cada risa, cada abrazo, cada mirada tuya ha llenado mi corazón de felicidad.  
+        <br><br>
+        No sabes cuánto agradezco a la vida por ponerte en mi camino. 
+        Eres mi apoyo, mi paz y mi más grande amor. 
+        Contigo aprendí lo que es el verdadero cariño, el amor sincero 
+        y la dicha de despertar cada día sabiendo que tengo a la mujer más increíble a mi lado.  
+        <br><br>
+        Prometo seguir amándote con todo mi corazón,  
+        seguir cuidándote, valorándote y celebrando cada día juntos como si fuera el primero.  
+        Porque tú, Andrea, *eres mi princesa bella*, mi amor eterno.  
+        Gracias por hacerme el hombre más feliz del mundo.  
+        <br><br>
+        Te amo con todo mi ser ❤ ❤</p>
+
+    <!-- Música de fondo -->
+    <audio id="music" autoplay loop>
+        <source src="musica_romantica.mp3" type="audio/mp3">
+        Tu navegador no soporta el audio.
+    </audio>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+            document.getElementById("yes").style.display = "none";
+            document.getElementById("no").style.display = "none";
+        }
+
+        function moveNoButton() {
+            let noButton = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+
+        // Crear corazones animados
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.innerHTML = "❤";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
